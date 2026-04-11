@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+<title>Scroll & Study</title>
+
+{% endblock %}
+
+
+
+{% block body %}
+
+<h1>Welcome</h1>
+
+<p>First thing to do: turning normal text(qustion) --> flashcards /or qustion with answers</p>
+
+<form method="POST">
+
+<textarea
+    name="user_input"
+    rows="5"
+    cols="40"
+    placeholder="Type something..."></textarea>
+
+<br><br>
+
+<button type="submit">Add question</button>
+
+</form>
+
+<p>
+{{ output }}
+</p>
+
+{% endblock %}
