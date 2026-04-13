@@ -28,8 +28,28 @@
 
 </form>
 
-<p>
-{{ output }}
-</p>
+
+<!--this will show flashcard into website-->
+{% if flashcards %}
+
+{% for card in flashcards %}
+
+<div class="card">
+
+<h3>Question:</h3>
+<p>{{ card.question }}</p>
+
+<h3>Answer:</h3>
+<p>{{ card.answer }}</p>
+
+</div>
+
+<hr>
+
+{% endfor %}
+
+{% endif %}
+
+
 
 {% endblock %}

@@ -16,17 +16,39 @@ model = genai.GenerativeModel("gemini-2.5-flash-lite")
 @app.route('/', methods=['POST', 'GET']) #now the website can sent and recive 
 def index():
     response_text = ""
+    flashcards = []  # Move here so it always exists
 
     if request.method == "POST":
         user_text = request.form["user_input"]
 
-        response = model.generate_content(user_text)
+        prompt = f"""
+        Turn the following text into flashcards.
 
-        response_text = response.text 
+        Format:
+        Question: ...
+        Answer: ...
+
+        Text:
+        {user_text}
+        """
+
+        response = model.generate_content(prompt)
+        output_text = response.text  # Define BEFORE using it
+        response_text = output_text
+
+        cards = output_text.split("Question:")
+
+        for card in cards:
+            if "Answer:" in card:
+                question, answer = card.split("Answer:")
+                flashcards.append({
+                    "question": question.strip(),
+                    "answer": answer.strip()
+                })
 
     return render_template(
         "index.html",
-        output=response_text
+        flashcards=flashcards
     )
 
 
