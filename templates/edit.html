@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block head %}
+
+<title>Edit Flashcard</title>
+
+{% endblock %}
+
+{% block body %}
+
+<h2>Edit Flashcard</h2>
+
+<form method="POST">
+
+<label>Question:</label>
+
+<br>
+
+<textarea
+name="question"
+rows="4"
+cols="40">{{ card.question }}</textarea>
+
+<br><br>
+
+<label>Answer:</label>
+
+<br>
+
+<textarea
+name="answer"
+rows="4"
+cols="40">{{ card.answer }}</textarea>
+
+<br><br>
+
+<button type="submit">
+Save Changes
+</button>
+
+</form>
+
+<br>
+
+<a href="{{ url_for('index') }}">
+<button>Cancel</button>
+</a>
+
+{% endblock %}

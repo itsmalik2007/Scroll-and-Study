@@ -36,20 +36,32 @@
 
 <div class="card">
 
-<h3>Question:</h3>
-<p>{{ card.question }}</p>
+<p class="question">
+{{ card.question }}
+</p>
 
-<h3>Answer:</h3>
-<p>{{ card.answer }}</p>
+<p class="answer hidden">
+{{ card.answer }}
+</p>
+
+<button onclick="toggleAnswer(this)">
+Show Answer
+</button>
+
+<br><br>
+
+<a href="{{ url_for('delete', card_id=card.id) }}">
+<button>Delete</button>
+</a>
+
+<a href="{{ url_for('edit', card_id=card.id) }}">
+<button>Edit</button>
+</a>
 
 </div>
-
-<hr>
 
 {% endfor %}
 
 {% endif %}
-
-
 
 {% endblock %}

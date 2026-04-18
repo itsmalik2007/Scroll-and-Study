@@ -14,6 +14,30 @@ href="{{ url_for('static', filename='Main.css') }}">
 
 </head>
 
+
+
+<script>
+
+    function toggleAnswer(button) {
+    
+        let answer = button.parentElement.querySelector(".answer");
+    
+        if (answer.classList.contains("hidden")) {
+    
+            answer.classList.remove("hidden");
+            button.innerText = "Hide Answer";
+    
+        } else {
+    
+            answer.classList.add("hidden");
+            button.innerText = "Show Answer";
+        }
+    }
+    
+    </script>
+
+    
+
 <body align="center">
 
 
