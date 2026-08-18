@@ -1,8 +1,17 @@
 body {
-    margin: 0;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+main {
+    flex: 1;
+}
 
 .card {
     border: 2px solid black;
