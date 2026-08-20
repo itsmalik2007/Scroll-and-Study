@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+
+
+{% block head %}
+
+<title>Scroll & Study</title>
+
+{% endblock %}
+
+
+
+
+
+{% block body %}
+
+<!---show flashcards into website--->
+{% if flashcards %}
+
+{% for card in flashcards %}
+
+<div class="card">
+
+<p class="question">
+{{ card.question }}
+</p>
+
+<p class="answer hidden">
+{{ card.answer }}
+</p>
+
+<button onclick="toggleAnswer(this)">
+Show Answer
+</button>
+
+<br><br>
+
+</div>
+
+{% endfor %}
+
+{% endif %}
+
+<a href="{{ url_for('index') }}">
+<button>Return to Main Page</button>
+</a>
+
+{% endblock %}

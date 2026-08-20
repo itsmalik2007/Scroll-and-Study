@@ -142,6 +142,17 @@ def edit(card_id):
     )
 
 
+#Add focus mode
+@app.route("/focus")
+def focus():
+    flashcards = load_flashcards()
+
+    return render_template(
+        "focus.html",
+        flashcards=flashcards
+    )
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 

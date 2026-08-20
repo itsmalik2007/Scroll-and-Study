@@ -20,7 +20,8 @@
     name="user_input"
     rows="5"
     cols="40"
-    placeholder="Type something..."></textarea>
+    placeholder="Type something...">
+</textarea>
 
 <br><br>
 
@@ -28,6 +29,9 @@
 
 </form>
 
+<a href="{{ url_for('focus') }}">
+<button>Focus Mode</button>
+</a>
 
 <!--this will show flashcard into website-->
 {% if flashcards %}
